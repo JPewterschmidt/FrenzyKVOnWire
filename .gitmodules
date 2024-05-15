@@ -1,0 +1,3 @@
+[submodule "FrenzyKV"]
+	path = FrenzyKV
+	url = git@github.com:JPewterschmidt/FrenzyKV.git

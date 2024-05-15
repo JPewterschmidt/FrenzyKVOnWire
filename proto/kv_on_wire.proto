@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+message kv_on_wire 
+{
+    string  conn_id = 1;
+    uint32  sequence_number = 2;
+    bytes   key = 3;
+    bytes   value = 4;
+}
