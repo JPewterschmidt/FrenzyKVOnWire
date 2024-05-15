@@ -2,10 +2,18 @@ syntax = "proto3";
 
 package frenzykv;
 
+enum op_type
+{
+    FIND = 0;
+    INSERT = 2;
+    REMOVE = 3;
+}
+
 message kv_on_wire 
 {
     string conn_id = 1;
-    uint32 sequence_number = 2;
-    bytes key = 3;
-    optional bytes value = 4;
+    op_type type = 2;
+    optional uint32 sequence_number = 3;
+    bytes key = 4;
+    optional bytes value = 5;
 }

@@ -12,7 +12,13 @@ message server_greeting
     optional string extra_msg = 6;
 }
 
-message client_auth_require
+message heartbeat_request
+{
+    string conn_id = 1;
+    optional string extra_msg = 7;
+}
+
+message client_auth_request
 {
     string conn_id = 1;
     string client_name = 2;
