@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package frenzykv;
+
+message server_greeting
+{
+    string conn_id = 1;
+    string server_name = 2;
+    uint32 availiable_level = 3;
+    bool tsl_required = 4;
+    bytes authencation_helper = 5;
+    optional string extra_msg = 6;
+}
+
+message client_auth_require
+{
+    string conn_id = 1;
+    string client_name = 2;
+    string db_name = 3;
+    bytes authencation_content = 4;
+}
+
+message server_auth_response
+{
+    string conn_id = 1;
+    bool approved = 2;
+    optional string reject_reason = 3;
+}
