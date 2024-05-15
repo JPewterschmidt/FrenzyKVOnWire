@@ -13,8 +13,25 @@ add_requires("protobuf-cpp")
 
 add_packages("jeamalloc", "gtest")
 
-target("FrenzyKVOnWire")
+target("FrenzyKVOnWireServer")
     set_kind("binary")
+    add_deps("FrenzyKV", "koios", "toolpex")
+    add_packages("protobuf-cpp")
+    add_includedirs(
+        "./include/frenzykv/server",
+        { public = false }
+    )
+    set_warnings("all", "error")
+    add_cxflags("-Wconversion", { force = true })
+    add_rules("protobuf.cpp")
+    add_files(
+        "server/*.cc", 
+        "proto/*.proto", 
+        { proto_public = false }
+    )
+
+target("FrenzyKVOnWireClient")
+    set_kind("shared")
     add_deps("FrenzyKV", "koios", "toolpex")
     add_packages("protobuf-cpp")
     add_includedirs(
@@ -25,7 +42,7 @@ target("FrenzyKVOnWire")
     add_cxflags("-Wconversion", { force = true })
     add_rules("protobuf.cpp")
     add_files(
-        "src/*.cc", 
+        "client/*.cc", 
         "proto/*.proto", 
         { proto_public = true }
     )
