@@ -9,14 +9,14 @@ includes("FrenzyKV")
 set_languages("c++23", "c17")
 set_policy("build.warning", true)
 set_policy("build.optimization.lto", false)
-add_requires("protobuf-cpp")
+add_requires("protobuf-cpp", "cxxopts")
 
 add_packages("jeamalloc", "gtest")
 
 target("FrenzyKVOnWireServer")
     set_kind("binary")
     add_deps("FrenzyKV", "koios", "toolpex")
-    add_packages("protobuf-cpp")
+    add_packages("protobuf-cpp", "cxxopts")
     add_includedirs(
         "./include/frenzykv/server",
         { public = false }
