@@ -27,7 +27,7 @@ target("FrenzyKVOnWireServer")
     add_files(
         "server/*.cc", 
         "proto/*.proto", 
-        { proto_public = false }
+        { proto_public = true }
     )
 
 target("FrenzyKVOnWireClient")
@@ -58,7 +58,11 @@ target("FrenzyKVOnWire-test")
         "./include",
         { public = true }
     )
-    add_files( "test/*.cc")
+    add_files("test/*.cc")
+    add_files(
+        "proto/*.proto", 
+        { proto_public = true }
+    )
     after_build(function (target)
         os.exec(target:targetfile())
         print("xmake: unittest complete.")

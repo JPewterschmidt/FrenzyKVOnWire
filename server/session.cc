@@ -9,7 +9,6 @@ namespace frenzykv::server
 
 koios::task<> session_layer::new_connection(toolpex::unique_posix_fd fd)
 {
-    assert(m_pimpl);
     toolpex::not_implemented();
     co_return;
 }
