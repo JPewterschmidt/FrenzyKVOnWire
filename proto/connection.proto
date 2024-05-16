@@ -12,10 +12,19 @@ message server_greeting
     optional string extra_msg = 6;
 }
 
-message heartbeat_request
+enum next_msg_type
+{
+    HEARTBEAT = 0;
+    DB_MANAGE = 1;
+    IO = 3;
+    MSG = 4;
+}
+
+message next_msg_indicator
 {
     string conn_id = 1;
-    optional string extra_msg = 7;
+    next_msg_type type = 2;
+    optional string extra_msg = 3;
 }
 
 message client_auth_request
