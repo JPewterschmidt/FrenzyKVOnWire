@@ -18,7 +18,7 @@ target("FrenzyKVOnWireServer")
     add_deps("FrenzyKV", "koios", "toolpex")
     add_packages("protobuf-cpp", "cxxopts")
     add_includedirs(
-        "./include/frenzykv/server",
+        "./include",
         { public = false }
     )
     set_warnings("all", "error")

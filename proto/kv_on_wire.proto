@@ -11,7 +11,7 @@ enum op_type
 
 message kv_on_wire 
 {
-    string conn_id = 1;
+    string session_id = 1;
     op_type type = 2;
     optional uint32 sequence_number = 3;
     bytes key = 4;
