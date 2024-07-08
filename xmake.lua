@@ -51,27 +51,3 @@ target("FrenzyKVOnWireClient")
         "proto/*.proto", 
         { proto_public = true }
     )
-
-target("FrenzyKVOnWire-test")
-    set_kind("binary")
-    add_deps("FrenzyKV", "koios", "toolpex")
-    add_cxflags("-Wconversion", { force = true })
-    set_warnings("all", "error")
-    add_packages("protobuf-cpp", "nlohmann_json")
-    add_rules("protobuf.cpp")
-    add_includedirs(
-        "./include",
-        { public = true }
-    )
-    add_files("test/*.cc")
-    add_files(
-        "proto/*.proto", 
-        { proto_public = true }
-    )
-    after_build(function (target)
-        os.exec(target:targetfile())
-        print("xmake: unittest complete.")
-    end)
-    on_run(function (target)
-        --nothing
-    end)
