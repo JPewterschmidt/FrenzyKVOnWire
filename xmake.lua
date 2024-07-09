@@ -11,9 +11,13 @@ set_policy("build.warning", true)
 set_policy("build.optimization.lto", false)
 add_requires(
     "protobuf-cpp", 
+    {system = false}
+)
+
+add_requires(
     "cxxopts", 
     "nlohmann_json", 
-    {system = false}
+    "botan"
 )
 
 add_packages("jeamalloc", "gtest")
